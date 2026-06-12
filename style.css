@@ -47,6 +47,57 @@ body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica
     min-width: auto;
     text-align: center;
 }
+
+.certifications {
+  padding: 2rem 0;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.cert-card {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+}
+
+.cert-card h4 {
+  margin-top: 0;
+  margin-bottom: 0.65rem;
+}
+
+.cert-card p {
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.cert-card ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.cert-card li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.cert-card li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 1.1rem;
+  line-height: 1;
+  top: 0;
+}
 /* ================================
    CV — Kévin Lemaître
 ================================ */

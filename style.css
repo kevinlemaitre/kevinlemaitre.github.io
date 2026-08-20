@@ -30,7 +30,7 @@ body{
 }
 
 .site-header{
-  background: #2d4a3e;
+  background: #7a7a75;
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
@@ -132,6 +132,7 @@ body{
 }
 
 .cert-card h4 {
+  color: #ffffff;
   margin-top: 0;
   margin-bottom: 0.65rem;
 }
@@ -177,7 +178,7 @@ body{
   --ink:    #1a1a18;
   --ink2:   #4a4a45;
   --ink3:   #7a7a75;
-  --paper:  #f7f5ef;
+  --paper:  #ffffff;
   --paper2: #edeae0;
   --paper3: #e3dfd2;
   --accent:  #2d4a3e;

@@ -1,18 +1,34 @@
-async function loadHTML(id, file) {
+async function loadInclude(id, file) {
+  const target = document.getElementById(id);
+  if (!target) return;
+  try {
     const response = await fetch(file);
-    const html = await response.text();
-    document.getElementById(id).innerHTML = html;
-
-    if (id === "header") {
-        const currentPage = window.location.pathname.split("/").pop();
-
-        document.querySelectorAll(".nav a").forEach(link => {
-            if (link.getAttribute("href") === currentPage) {
-                link.classList.add("active");
-            }
-        });
-    }
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    target.innerHTML = await response.text();
+  } catch (error) {
+    console.error(`Impossible de charger ${file}:`, error);
+  }
 }
 
-loadHTML("header", "header.html");
-loadHTML("footer", "footer.html");
+async function initIncludes() {
+  await Promise.all([
+    loadInclude("header", "header.html"),
+    loadInclude("footer", "footer.html")
+  ]);
+
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll("[data-page]").forEach(link => {
+    if (link.dataset.page === currentPage) {
+      link.classList.add("is-active");
+      link.setAttribute("aria-current", "page");
+    }
+  });
+
+  const menu = document.querySelector(".mobile-nav-wrap");
+  if (menu) {
+    menu.querySelectorAll("a").forEach(link =>
+      link.addEventListener("click", () => menu.removeAttribute("open"))
+    );
+  }
+}
+document.addEventListener("DOMContentLoaded", initIncludes);

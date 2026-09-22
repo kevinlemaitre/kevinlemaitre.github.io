@@ -1,42 +1,102 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Accueil — Kevin Lemaître</title>
-  <link rel="stylesheet" href="style.css">
-  <meta name="description" content="Page d'accueil de Kevin Lemaître — développeur web.">
+  <meta name="description" content="Portfolio de Kevin Lemaître, développeur web et étudiant en MIAGE.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div id="header"></div>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h2>Bonjour, je suis Kevin et bienvenue sur mon Portfolio.</h2>
-        <p class="lead">Développeur web passionné par la création d'applications simples, rapides et accessibles.</p>
-        
+  <main class="page">
+    <section class="hero-home">
+      <p class="terminal-label reveal"><b>kevin@portfolio</b><span>:~$</span> whoami</p>
+      <h1 class="page-title hero-title reveal">Bonjour, je suis <span>Kevin Lemaître</span>.</h1>
+      <p class="hero-role reveal">Développeur Web · Full-Stack</p>
+      <p class="page-intro reveal">
+        Je conçois des sites et applications web simples, modernes et accessibles.
+        Actuellement en recherche d'une opportunité professionnelle dans le domaine de l'informatique,
+        je souhaite continuer à développer mes compétences sur des projets concrets.
+      </p>
+
+      <div class="hero-actions reveal">
+        <a href="projects.html" class="btn primary">Voir mes projets →</a>
+        <a href="cv.html" class="btn">Consulter mon CV</a>
+        <a href="mailto:k.lemaitre10@gmail.com" class="btn">Me contacter</a>
       </div>
     </section>
 
-    <section class="presentation">
-      <div class="container">
-        <h3>Présentation</h3>
-        <p>Je crée des sites et applications web en utilisant des technologies modernes. J'aime résoudre des problèmes concrets et apprendre en continu. Sur ce site, vous trouverez une courte présentation, quelques projets et mon CV.</p>
+    <section class="section reveal">
+      <div class="section-heading"><h2>Recherche d'emploi</h2></div>
+      <article class="card job-highlight">
+        <div>
+          <p class="card-meta">DISPONIBLE DÈS MAINTENANT</p>
+          <h3>À la recherche d'une opportunité en informatique</h3>
+          <p>
+            Je recherche un emploi dans le domaine du développement informatique.
+            Je suis particulièrement intéressé par les environnements web et les projets
+            permettant de continuer à apprendre et à travailler avec des technologies actuelles.
+          </p>
+        </div>
+        <a href="mailto:k.lemaitre10@gmail.com" class="btn primary">Me contacter →</a>
+      </article>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-heading"><h2>Parcours de certification</h2></div>
+      <div class="card-grid">
+        <article class="card">
+          <p class="card-meta">FORMATION CONTINUE</p>
+          <h3>Des compétences que je continue de développer</h3>
+          <p>
+            En complément de ma formation universitaire, je poursuis des parcours
+            de certification autour du développement web, de la programmation,
+            des réseaux et des outils numériques.
+          </p>
+          <a href="certifications.html" class="btn">Voir les certifications →</a>
+        </article>
+        <article class="card">
+          <p class="card-meta">TECHNOLOGIES</p>
+          <h3>Une stack orientée web</h3>
+          <div class="tag-list">
+            <span class="tag">Java</span>
+            <span class="tag">Spring MVC</span>
+            <span class="tag">Symfony</span>
+            <span class="tag">Angular</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">PHP</span>
+            <span class="tag">WordPress</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Git</span>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="presentation">
-      <div class="container">
-        <h3>En recherche d'emploi</h3>
-        <p>Je suis actuellement en recherche d'emploi, n'hésitez pas à me contacter par mail ou téléphone, vous pouvez retrouver mes information sur mon CV. </p>
-      <p><a href="cv.html" class="btn primary">Voir mon CV</a></p>
-      </div>
+    <section class="section reveal">
+      <div class="section-heading"><h2>À propos</h2></div>
+      <article class="card">
+        <h3>Apprendre, construire, améliorer.</h3>
+        <p>
+          Mon parcours combine un BTS SIO et une Licence Informatique MIAGE.
+          J'aime résoudre des problèmes techniques, travailler en équipe et transformer
+          un besoin en solution fonctionnelle.
+        </p>
+        <div class="project-links">
+          <a href="projects.html" class="btn primary">Explorer mes projets</a>
+          <a href="cv.html" class="btn">Mon parcours →</a>
+        </div>
+      </article>
     </section>
   </main>
 
   <div id="footer"></div>
-
   <script src="js/includes.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>

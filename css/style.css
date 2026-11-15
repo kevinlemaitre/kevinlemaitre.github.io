@@ -515,3 +515,197 @@ summary:focus-visible {
   background: var(--teal);
   box-shadow: 0 0 12px rgba(63,214,184,.55);
 }
+
+
+/* =========================================
+   APPLICATIONS WEB GSB
+========================================= */
+
+.projects-intro {
+  max-width: 720px;
+  margin: 0 0 24px;
+  color: var(--muted);
+}
+
+.gsb-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.gsb-card {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.gsb-visual {
+  min-height: 190px;
+  padding: 22px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--rule);
+}
+
+.gsb-visual::before,
+.gsb-visual::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.gsb-visual::before {
+  width: 220px;
+  height: 220px;
+  right: -55px;
+  top: -90px;
+}
+
+.gsb-visual::after {
+  width: 150px;
+  height: 150px;
+  right: -20px;
+  top: -55px;
+}
+
+.gsb-visual-medical {
+  background:
+    radial-gradient(circle at 80% 40%, rgba(63,214,184,.19), transparent 40%),
+    #14252A;
+}
+
+.gsb-visual-shop {
+  background:
+    radial-gradient(circle at 80% 40%, rgba(232,176,75,.2), transparent 40%),
+    #292319;
+}
+
+.gsb-visual-label {
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  letter-spacing: .1em;
+  color: var(--muted);
+}
+
+.gsb-visual-icon {
+  position: absolute;
+  right: 32px;
+  top: 30px;
+  font-size: 4.5rem;
+  line-height: 1;
+  color: var(--teal);
+  opacity: .8;
+}
+
+.gsb-visual-shop .gsb-visual-icon {
+  color: var(--gold);
+}
+
+.gsb-visual-title {
+  margin-top: 20px;
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -.04em;
+}
+
+.gsb-visual-subtitle {
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+.gsb-card-content {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.gsb-card-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.gsb-card-heading h3 {
+  font-size: 1rem;
+}
+
+.gsb-number {
+  font-family: var(--font-mono);
+  color: var(--teal);
+  font-size: .8rem;
+}
+
+.gsb-card-content h4 {
+  margin: 15px 0 8px;
+  color: var(--gold);
+  font-family: var(--font-mono);
+  font-size: .8rem;
+}
+
+.gsb-features {
+  padding-left: 20px;
+  margin: 0;
+  color: var(--muted);
+  font-size: .88rem;
+}
+
+.gsb-features li {
+  margin: 5px 0;
+}
+
+.gsb-contribution {
+  padding: 10px 12px;
+  border-left: 2px solid var(--teal);
+  background: rgba(63,214,184,.05);
+  font-size: .78rem;
+}
+
+.gsb-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+.gsb-demo-disabled {
+  color: var(--muted);
+  border-style: dashed;
+  cursor: not-allowed;
+  opacity: .7;
+  font-size: .72rem;
+}
+
+.gsb-card:hover .gsb-visual {
+  filter: brightness(1.1);
+}
+
+@media (max-width: 800px) {
+  .gsb-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .gsb-card-content {
+    padding: 17px;
+  }
+
+  .gsb-actions {
+    flex-direction: column;
+  }
+
+  .gsb-actions .btn {
+    width: 100%;
+  }
+}

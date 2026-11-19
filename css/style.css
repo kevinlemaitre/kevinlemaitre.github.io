@@ -225,6 +225,66 @@ summary:focus-visible {
   font-size: .73rem;
 }
 
+.oc-section { margin-top: 48px; }
+
+.oc-heading {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: 30px;
+  padding: 26px 30px;
+  border-left: 3px solid var(--gold);
+}
+
+.oc-eyebrow,
+.oc-topic-index {
+  color: var(--teal);
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  letter-spacing: .08em;
+}
+
+.oc-eyebrow { text-transform: uppercase; }
+
+.oc-heading h2 {
+  margin: 5px 0 0;
+  font-family: var(--font-mono);
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  line-height: 1.25;
+}
+
+.oc-heading p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.oc-topic-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.oc-topic { padding: 20px; }
+
+.oc-topic h3 {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.oc-topic p {
+  min-height: 3.4em;
+  margin: 9px 0;
+  font-size: .9rem;
+}
+
+.oc-topic .tag-list { margin-top: 14px; }
+
+.other-cert-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -449,7 +509,13 @@ summary:focus-visible {
 
   .page { padding: 54px 18px 72px; }
   .stack-grid,
-  .cv-layout { grid-template-columns: 1fr; }
+  .cv-layout,
+  .oc-heading,
+  .oc-topic-grid,
+  .other-cert-grid { grid-template-columns: 1fr; }
+
+  .oc-heading { gap: 12px; }
+  .oc-topic p { min-height: 0; }
 
   .site-footer-inner {
     flex-direction: column;

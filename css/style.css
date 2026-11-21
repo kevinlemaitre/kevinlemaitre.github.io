@@ -1,4 +1,5 @@
 :root {
+  color-scheme: dark;
   --bg: #0D1117;
   --bg-raised: #131A24;
   --bg-soft: #101720;
@@ -9,11 +10,36 @@
   --gold: #E8B04B;
   --gold-ink: #171208;
   --teal: #3FD6B8;
+  --card-start: #131A24;
+  --card-end: #101720;
   --maxw: 980px;
   --content: 760px;
   --radius: 6px;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --bg: #F5F0E6;
+    --bg-raised: #FFFCF5;
+    --bg-soft: #F1EBDD;
+    --rule: #D8D1C4;
+    --rule-light: #B8AF9F;
+    --ink: #17212B;
+    --muted: #4C5966;
+    --gold: #855600;
+    --gold-ink: #FFFCF5;
+    --teal: #165C4A;
+    --card-start: #FFFCF5;
+    --card-end: #F1EBDD;
+  }
+
+}
+
+@view-transition {
+  navigation: auto;
 }
 
 * { box-sizing: border-box; }
@@ -53,7 +79,7 @@ summary:focus-visible {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(13, 17, 23, .88);
+  background: var(--bg);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--rule);
 }
@@ -173,7 +199,7 @@ summary:focus-visible {
 }
 
 .card {
-  background: linear-gradient(145deg, rgba(19,26,36,.96), rgba(16,23,32,.96));
+  background: linear-gradient(145deg, var(--card-start), var(--card-end));
   border: 1px solid var(--rule);
   border-radius: var(--radius);
   padding: 24px;
@@ -480,6 +506,96 @@ summary:focus-visible {
   transform: none;
 }
 
+@supports (animation-timeline: view()) and (animation-range: entry 0% entry 100%) {
+  .reveal {
+    animation: reveal-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 100%;
+    transition: none;
+  }
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.project-filters {
+  margin: 32px 0 0;
+  padding: 18px 20px;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+}
+
+.project-filters legend {
+  padding: 0 8px;
+  font-family: var(--font-mono);
+  font-size: .9rem;
+  color: var(--ink);
+}
+
+.project-filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
+.project-filter-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  cursor: pointer;
+}
+
+.project-filter-options input {
+  margin: 0;
+  accent-color: var(--teal);
+}
+
+.project-filters p {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+.projects-content > .project-section {
+  margin-top: 40px;
+}
+
+body:has(.project-filters input[value="php"]:checked) .project-entry:not([data-tech~="php"]),
+body:has(.project-filters input[value="sql"]:checked) .project-entry:not([data-tech~="sql"]),
+body:has(.project-filters input[value="javascript"]:checked) .project-entry:not([data-tech~="javascript"]),
+body:has(.project-filters input[value="symfony"]:checked) .project-entry:not([data-tech~="symfony"]),
+body:has(.project-filters input[value="angular"]:checked) .project-entry:not([data-tech~="angular"]),
+body:has(.project-filters input[value="typescript"]:checked) .project-entry:not([data-tech~="typescript"]),
+body:has(.project-filters input[value="postgresql"]:checked) .project-entry:not([data-tech~="postgresql"]),
+body:has(.project-filters input[value="wordpress"]:checked) .project-entry:not([data-tech~="wordpress"]),
+body:has(.project-filters input[value="r"]:checked) .project-entry:not([data-tech~="r"]) {
+  display: none;
+}
+
+body:has(.project-filters input[value="php"]:checked) .project-section:not(:has(.project-entry[data-tech~="php"])),
+body:has(.project-filters input[value="sql"]:checked) .project-section:not(:has(.project-entry[data-tech~="sql"])),
+body:has(.project-filters input[value="javascript"]:checked) .project-section:not(:has(.project-entry[data-tech~="javascript"])),
+body:has(.project-filters input[value="symfony"]:checked) .project-section:not(:has(.project-entry[data-tech~="symfony"])),
+body:has(.project-filters input[value="angular"]:checked) .project-section:not(:has(.project-entry[data-tech~="angular"])),
+body:has(.project-filters input[value="typescript"]:checked) .project-section:not(:has(.project-entry[data-tech~="typescript"])),
+body:has(.project-filters input[value="postgresql"]:checked) .project-section:not(:has(.project-entry[data-tech~="postgresql"])),
+body:has(.project-filters input[value="wordpress"]:checked) .project-section:not(:has(.project-entry[data-tech~="wordpress"])),
+body:has(.project-filters input[value="r"]:checked) .project-section:not(:has(.project-entry[data-tech~="r"])) {
+  display: none;
+}
+
 @media (max-width: 700px) {
   .desktop-nav { display: none; }
   .mobile-nav-wrap { display: block; position: relative; }
@@ -529,9 +645,17 @@ summary:focus-visible {
     animation-duration: .01ms !important;
     transition-duration: .01ms !important;
   }
-  .reveal {
+  .reveal,
+  .card:hover,
+  .btn:hover {
     opacity: 1;
     transform: none;
+  }
+  .reveal { animation: none !important; }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: .01ms !important;
   }
 }
 
@@ -561,7 +685,7 @@ summary:focus-visible {
   padding: 13px 15px;
   border: 1px solid var(--rule);
   border-radius: 4px;
-  background: rgba(19, 26, 36, .65);
+  background: var(--bg-raised);
   font-size: .82rem;
 }
 
@@ -687,6 +811,17 @@ summary:focus-visible {
   font-size: .85rem;
 }
 
+@media (prefers-color-scheme: light) {
+  .gsb-visual-label,
+  .gsb-visual-subtitle {
+    color: #CAD4D8;
+  }
+
+  .gsb-visual-title {
+    color: #F5F0E6;
+  }
+}
+
 .gsb-card-content {
   padding: 22px;
   display: flex;
@@ -773,5 +908,79 @@ summary:focus-visible {
 
   .gsb-actions .btn {
     width: 100%;
+  }
+}
+
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  .cv-document {
+    background: #fff;
+    color: #111;
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+
+  .cv-document #header,
+  .cv-document #footer,
+  .cv-document .site-header,
+  .cv-document .cv-print-action {
+    display: none !important;
+  }
+
+  .cv-document .page {
+    max-width: none;
+    padding: 0;
+  }
+
+  .cv-document .page-title {
+    font-size: 26pt;
+  }
+
+  .cv-document .profile-box,
+  .cv-document .card {
+    background: #fff;
+    box-shadow: none;
+  }
+
+  .cv-document .cv-layout,
+  .cv-document .cv-layout > div {
+    display: contents;
+  }
+
+  .cv-document .cv-layout > aside {
+    display: contents;
+  }
+
+  .cv-document .profile-box,
+  .cv-document .cv-item,
+  .cv-document .skill-group {
+    break-inside: avoid;
+  }
+
+  .cv-document .cv-section + .cv-section {
+    margin-top: 18px;
+  }
+
+  .cv-document .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .cv-document .cv-date,
+  .cv-document .cv-company,
+  .cv-document .cv-school,
+  .cv-document .skill-group h3,
+  .cv-document .section-heading::before {
+    color: #222;
+  }
+
+  .cv-document .cv-item ul,
+  .cv-document .profile-box p,
+  .cv-document .tag {
+    color: #333;
   }
 }

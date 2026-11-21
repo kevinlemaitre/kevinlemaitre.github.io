@@ -32,13 +32,31 @@
       et ma Licence 3 MIAGE.
     </p>
 
-    <section class="section reveal">
+    <fieldset class="project-filters reveal">
+      <legend>Filtrer les projets par technologie</legend>
+      <div class="project-filter-options">
+        <label><input type="radio" name="technology" value="all" checked> Toutes</label>
+        <label><input type="radio" name="technology" value="php"> PHP</label>
+        <label><input type="radio" name="technology" value="sql"> SQL</label>
+        <label><input type="radio" name="technology" value="javascript"> JavaScript</label>
+        <label><input type="radio" name="technology" value="symfony"> Symfony</label>
+        <label><input type="radio" name="technology" value="angular"> Angular</label>
+        <label><input type="radio" name="technology" value="typescript"> TypeScript</label>
+        <label><input type="radio" name="technology" value="postgresql"> PostgreSQL</label>
+        <label><input type="radio" name="technology" value="wordpress"> WordPress</label>
+        <label><input type="radio" name="technology" value="r"> R</label>
+      </div>
+      <p>Les projets sans la technologie choisie sont masqués.</p>
+    </fieldset>
+
+    <div class="projects-content">
+    <section class="section reveal project-section">
 
       <div class="section-heading">
         <h2>BTS SIO — 1ère année</h2>
       </div>
 
-      <article class="card project-card">
+      <article class="card project-card project-entry" data-tech="database development slam cybersecurity certification wordpress">
 
         <h3>Première année</h3>
         <p>
@@ -50,6 +68,7 @@
           <span class="tag">Développement</span>
           <span class="tag">SLAM</span>
           <span class="tag">Cybersécurité</span>
+          <span class="tag">WordPress</span>
         </div>
 
         <div class="project-links">
@@ -64,13 +83,13 @@
       </article>
     </section>
 
-    <section class="section reveal">
+    <section class="section reveal project-section">
 
       <div class="section-heading">
         <h2>BTS SIO — 2ème année</h2>
       </div>
 
-      <article class="card project-card">
+      <article class="card project-card project-entry" data-tech="agile oop database cybersecurity portfolio math certification internship">
 
         <h3>Deuxième année</h3>
 
@@ -100,7 +119,7 @@
       </article>
     </section>
 
-    <section class="section reveal">
+    <section class="section reveal project-section">
 
       <div class="section-heading">
         <h2>Applications web — GSB</h2>
@@ -113,7 +132,7 @@
 
       <div class="gsb-grid">
 
-        <article class="card gsb-card">
+        <article class="card gsb-card project-entry" data-tech="php sql javascript">
 
           <div class="gsb-visual gsb-visual-medical">
             <span class="gsb-visual-label">APPLICATION WEB</span>
@@ -179,7 +198,7 @@
           </div>
         </article>
 
-        <article class="card gsb-card">
+        <article class="card gsb-card project-entry" data-tech="php sql javascript">
 
           <div class="gsb-visual gsb-visual-shop">
             <span class="gsb-visual-label">APPLICATION WEB</span>
@@ -236,13 +255,13 @@
     </section>
 
     
-<section class="section reveal">
+<section class="section reveal project-section">
 
   <div class="section-heading">
     <h2>Licence 3 MIAGE</h2>
   </div>
 
-  <article class="card project-card">
+  <article class="card project-card project-entry" data-tech="tiers advanced-programming information-systems r">
 
     <h3>Université d'Orléans</h3>
 
@@ -265,7 +284,7 @@
 
   </article>
 
-  <article class="card project-card">
+  <article class="card project-card project-entry" data-tech="symfony php angular typescript postgresql">
 
     <h3>WeLabPlanning — Gestion de projets et planification</h3>
 
@@ -323,6 +342,8 @@
 
 </section>
 
+
+    </div>
 
   </main>
 
